@@ -54,6 +54,7 @@ class DataTransformation:
         
 
     def initiate_data_transformation(self, train_path, test_path):
+        logging.info("Transformation of the data is started")
         try:
             train_df=pd.read_csv(train_path)
             test_df=pd.read_csv(test_path)
@@ -79,6 +80,8 @@ class DataTransformation:
             #save the preprocessing object
             save_object(file_path=self.data_transformation_config.preprocessor_obj_file_path,
                         obj=preprocessing_obj)
+            
+            logging.info("Transformation of the data is completed")
 
             return(train_arr,test_arr,self.data_transformation_config.preprocessor_obj_file_path)
 
